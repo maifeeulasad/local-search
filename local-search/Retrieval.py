@@ -9,9 +9,9 @@ class Retrieval():
         self.keep_attribute = keep_attribute
 
     def search(self, db, query_embedding, top_k=None):
-        projection = {attribute: 1 for attribute in self.keep_attribute}
-        print("here---")
-        documents = db.read_documents({self.db_model_name: {"$exists": True}}, projection)
+        # projection = {attribute: 1 for attribute in self.keep_attribute}
+        # projection[self.db_model_name] = 1
+        documents = db.read_documents({self.db_model_name: {"$exists": True}})#, projection)
         print(documents)
         for doc in documents:
             print(doc)
