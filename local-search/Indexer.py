@@ -21,6 +21,12 @@ class Indexer():
         embedding = model.encode(content)
         return embedding
     
+    @staticmethod
+    def embed(content, model_name='sentence-transformers/all-MiniLM-L6-v2'):
+        model = SentenceTransformer(model_name)
+        embedding = model.encode(content)
+        return embedding
+    
     def index(self, db):
         content = FileParser(self.file_path).parse()
         embedding = self.embed(content)
