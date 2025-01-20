@@ -2,7 +2,7 @@ from sentence_transformers import util
 from Indexer import Indexer
 
 class Retrieval():
-    def __init__(self, model_name, threshold=0.8, keep_attribute=["location"]):
+    def __init__(self, model_name = "sentence-transformers/all-MiniLM-L6-v2", threshold=0.8, keep_attribute=["location"]):
         db_model_name = Indexer.desanitize_key(model_name)
         self.db_model_name = db_model_name
         self.threshold = threshold
