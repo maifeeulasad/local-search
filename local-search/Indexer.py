@@ -1,4 +1,4 @@
-from sentence_transformers import SentenceTransformer, util
+from sentence_transformers import SentenceTransformer
 
 class Indexer():
     def __init__(self, content, model_name):
