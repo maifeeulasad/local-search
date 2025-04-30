@@ -3,7 +3,9 @@ from Indexer import Indexer
 import numpy as np
 
 class Retrieval():
-    def __init__(self, model_name = "sentence-transformers/all-MiniLM-L6-v2", threshold=0.8, keep_attribute=["location"]):
+    default_model_name = 'sentence-transformers/all-MiniLM-L6-v2'
+
+    def __init__(self, model_name = default_model_name, threshold=0.8, keep_attribute=["location"]):
         db_model_name = Indexer.sanitize_key(model_name)
         self.db_model_name = db_model_name
         self.threshold = threshold

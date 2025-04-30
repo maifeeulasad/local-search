@@ -3,8 +3,9 @@ from FileParser import FileParser
 
 class Indexer():
     sanitize_key_value = "__meaw__woof__"
+    default_model_name = 'sentence-transformers/all-MiniLM-L6-v2'
 
-    def __init__(self, file_path, model_name = 'sentence-transformers/all-MiniLM-L6-v2'):
+    def __init__(self, file_path, model_name = default_model_name):
         self.file_path = file_path
         self.model_name = model_name
 
@@ -22,7 +23,7 @@ class Indexer():
         return embedding
     
     @staticmethod
-    def embed(content, model_name='sentence-transformers/all-MiniLM-L6-v2'):
+    def embed(content, model_name=default_model_name):
         model = SentenceTransformer(model_name)
         embedding = model.encode(content)
         return embedding
