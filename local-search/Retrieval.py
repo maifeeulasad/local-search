@@ -16,5 +16,10 @@ class Retrieval():
         documents = list(documents)
         embeddings = np.array([doc[self.db_model_name] for doc in documents], dtype = np.float32)
         hits = util.semantic_search(query_embedding, embeddings, top_k=top_k)
-        results = [{"location":doc["location"], "score":hit["score"]} for doc, hit in zip(documents, hits[0]) if hit["score"] > self.threshold]
+        results = [
+            {
+                "location":doc["location"],
+                "score":hit["score"]
+            } for doc, hit in zip(documents, hits[0]) if hit["score"] > self.threshold
+        ]
         return results

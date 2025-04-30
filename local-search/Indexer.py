@@ -32,5 +32,8 @@ class Indexer():
         content = FileParser(self.file_path).parse()
         embedding = self.embed(content)
         model_name_sanitized = Indexer.sanitize_key(self.model_name)
-        sample_document = {"location": self.file_path, model_name_sanitized: embedding.tolist()}
+        sample_document = {
+            "location": self.file_path, 
+            model_name_sanitized: embedding.tolist()
+        }
         db.insert_document(sample_document)
